@@ -17,7 +17,7 @@ const RaceDetails = () => {
     var data = location.state.data;
     return (
 
-        <div className="d-lg-flex flex-lg-row flex-lg-fill">
+        <div className="d-lg-flex h-100 flex-lg-row flex-lg-fill">
             <GrandPrix data={data} />
             <div className="d-xl-flex flex-xl-row flex-grow-1 flex-fill">
                 <Results round={data.round} season={data.season} />

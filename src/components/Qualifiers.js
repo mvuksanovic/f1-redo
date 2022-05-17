@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import Flag from './Flag';
 import { Table } from 'react-bootstrap';
 const Qualifiers = ({season, round}) => {
@@ -29,7 +28,7 @@ const Qualifiers = ({season, round}) => {
         })
 
         return (
-            <div className="rounded tableDiv m-1 flex-fill">
+            <div className="rounded tableDiv bg-dark m-1 flex-fill">
             <Table striped borderless hover size="sm" variant="dark">
                 <thead>
                     <tr>

@@ -15,7 +15,7 @@ const DriverBio = (props) => {
                     <h3>{data.Driver.givenName} {data.Driver.familyName} <Flag countryName={countryName} /></h3>
                     </div>
                    <div className="d-flex flex-row flex-fill">
-                        <div className="rounded tableDiv ml-2" style={{width: "165px"}}>
+                        <div className="rounded ml-2" style={{width: "165px"}}>
                                 <WikiImage url={data.Driver.url} size="165"/>
                         </div>
                         

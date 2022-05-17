@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import { ThemeContext } from "../context/ThemeContext";
 
 const Header = ({season, currentSeason, updateSeason}) => {
     
@@ -9,7 +10,7 @@ const Header = ({season, currentSeason, updateSeason}) => {
     console.log(season, location)
     
     const [year, setYear] = useState(season)
-    
+    const theme = useContext(ThemeContext)
     useEffect(() => {
         setYear(season)
     }, [season])
@@ -26,6 +27,10 @@ const Header = ({season, currentSeason, updateSeason}) => {
 
     }
 
+    const changeTheme = () => {
+        theme.theme === "dark"? theme.setTheme("light") : theme.setTheme("dark")
+    }
+    const lightButtonValue = theme.theme === "dark"? "light" : "dark"
     
         var smth = location.pathname;
         smth = (smth === "/") ? " " : smth;
@@ -39,12 +44,13 @@ const Header = ({season, currentSeason, updateSeason}) => {
             );
         }); 
         return (
-            <div className="header d-flex flex-fill bg-dark m-1 p-1 rounded">
+            <div className={"header d-flex flex-fill m-1 p-1 rounded bg-"+theme.theme}>
                  <ButtonToolbar className="flex-grow-1">
                     {button}
                 </ButtonToolbar>
                 <div className="ml-auto" style={hidden}>
-                    <input className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange} />
+                    <Button className="m-1 p-1" variant="link" onClick={changeTheme}>{lightButtonValue}</Button>
+                    <input className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange}/>
                     <Button className="m-1 p-1" variant="secondary" onClick={btnClick}>Year</Button>
                 </div>
             </div>

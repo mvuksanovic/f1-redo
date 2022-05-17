@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Drivers from './components/Drivers'
 import Teams from './components/teams';
@@ -11,65 +11,57 @@ import Mng404 from './components/Mng404';
 import Header from './components/Header';
 import Footer from './components/footer.js';
 import Home from './components/Home';
+import { ThemeContext } from "./context/ThemeContext";
 
+const App = () => {
 
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            season: "current",
-            currentSeason: "current"
-        }
-        this.updateSeason = this.updateSeason.bind(this);
-    }
-
-    componentDidMount() {
+    const [season, setSeason] = useState("current")
+    const [currentSeason, setCurrentSeason] = useState("current")
+    const [theme, setTheme] = useState("dark")
+    useEffect(() => {
         var url = "https://ergast.com/api/f1/current/last/seasons.json"
         fetch(url)
             .then(result => result.json())
             .then(data => {
-                this.setState({
-                    season: data.MRData.SeasonTable.season,
-                    currentSeason: data.MRData.SeasonTable.season
-                })
+                setSeason(data.MRData.SeasonTable.season)
+                setCurrentSeason(data.MRData.SeasonTable.season)
             })
+    }, [])
+
+    const updateSeason = (year) => {
+        setSeason(year);
     }
-    updateSeason(year) {
+      
+    return (
 
-        this.setState({ season: year });
-    }
-
-
-    render() {
-        var season = this.state.season;
-        return (
-
-
-            <div className="bg-secondary d-md-flex flex-md-row align-items-strech p-1" style={{ height: "100%" }}>
+        <ThemeContext.Provider value={{theme, setTheme}}>
+            <div className="bg-secondary d-md-flex flex-md-row align-items-strech container-xxl p-1 h-100">
                 <NavBar />
                 <div className="flex-fill ">
                     <Header
-                        updateSeason={this.updateSeason}
-                        season={this.state.season}
-                        currentSeason={this.state.currentSeason}
+                        updateSeason={updateSeason}
+                        season={season}
+                        currentSeason={currentSeason}
                     />
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='Drivers' element={<Drivers season={season} />} />
-                        <Route path="Drivers/:driver" element={<DriverDetails />} />
-                        <Route path='/Teams' element={<Teams season={season} />} />
-                        <Route path='/Races' element={<Races season={season} />} />
-                        <Route path='/Races/:race' element={<RaceDetails />} />
-                        <Route path='/Teams/:team' element={<TeamDetails/>} />
-                        <Route element={Mng404} />
-                    </Routes>
+                    <div className="main">
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='drivers' element={<Drivers season={season} />} />
+                            <Route path="drivers/:driver" element={<DriverDetails />} />
+                            <Route path='/teams' element={<Teams season={season} />} />
+                            <Route path='/races' element={<Races season={season} />} />
+                            <Route path='/races/:race' element={<RaceDetails />} />
+                            <Route path='/teams/:team' element={<TeamDetails />} />
+                            <Route element={Mng404} />
+                        </Routes>
+                    </div>
                     <Footer></Footer>
 
                 </div>
             </div>
+        </ThemeContext.Provider>
+    );
 
-        );
-    }
 }
 
 

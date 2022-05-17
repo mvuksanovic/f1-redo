@@ -1,4 +1,3 @@
-import React from 'react';
 import Flag from './Flag';
 
 
@@ -13,9 +12,9 @@ const TeamBio = ({props}) => {
 
 
     return (
-        <div className="d-flex flex-lg-column  bg-dark text-white m-1 p-1 rounded">
-                  <div className="d-flex flex-row ">
-                    <div className="rounded m-1">
+        <div className="d-flex flex-lg-column  col-lg-3 bg-dark text-white m-1 p-1 rounded">
+                  <div className="d-flex flex-row justify-content-center">
+                    <div className="rounded m-1 text-center" >
                         <h3>{props.Constructor.name}</h3>
                         <img style={{width: 130}} src={src} alt={props.Constructor.name} />
                         <div className="m-1 p-1">
@@ -24,7 +23,7 @@ const TeamBio = ({props}) => {
                     </div>
                     
                 </div>
-                <div className="flex-fill p-1">
+                <div className="flex-fill p-1 text-center">
                     <Flag nationality={props.Constructor.nationality} />
                     <p>Country: {props.Constructor.nationality}</p>
                     <p>Position: {props.position}</p>

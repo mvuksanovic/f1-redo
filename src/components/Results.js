@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Flag from './Flag';
 import Loader from './Loader';
 import { Table } from "react-bootstrap"
-import { useLocation } from "react-router-dom";
 
 const Results = ({season, round}) => {
     /* constructor() {
@@ -38,8 +37,8 @@ const Results = ({season, round}) => {
         var result = results.map((result, i) => {
             var time = (result.status === "Finished") ? (result.Time && result.Time.time) : result.status;
             return (<tr key={i}>
-                <td>{result.position}<Flag nationality={result.Driver.nationality} /></td>
-                <td> {result.Driver.givenName} {result.Driver.familyName}</td>
+                <td>{result.position}</td>
+                <td> <Flag nationality={result.Driver.nationality} />{result.Driver.givenName} {result.Driver.familyName}</td>
                 <td>{result.Constructor.name}</td>
                 <td>{time}</td>
                 <td>{result.points}</td>
@@ -48,7 +47,7 @@ const Results = ({season, round}) => {
         })
 
         return (
-            <div className="rounded tableDiv m-1 flex-fill">
+            <div className="rounded tableDiv bg-dark m-1 flex-fill">
                 <Table striped borderless hover size="sm" variant="dark">
                     <thead>
                         <tr>

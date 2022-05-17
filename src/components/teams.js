@@ -49,13 +49,13 @@ class Teams extends React.Component {
         }
 
         var team = this.state.data.map((data, i) => {
-            var link= data.Constructor.name.replace(/ /g, '-');            
+            var link= data.Constructor.constructorId           
             return (                                   
                     <tr key={i}>
                         <td>{data.position}</td>
                         <td>
                        <Link className="text-decoration-none text-reset" 
-                       to={'/Teams/' + link}  
+                       to={'/teams/' + link}  
                        state= {{
                            data: data,
                            season: this.props.season
@@ -71,8 +71,8 @@ class Teams extends React.Component {
             );                    
         })
         return(
-            <div className="rounded tableDiv m-1">
-                  <Table striped bordered hover size="sm" variant="dark">
+            <div className="rounded tableDiv bg-dark m-1">
+                  <Table striped borderless hover size="sm" variant="dark">
                         <thead>
                             <tr>
                                 <th colSpan="5">Constructors Championship Standings {this.props.season}</th>                               

@@ -6,17 +6,16 @@ import { Link } from "react-router-dom";
 const TeamResults = ({ props }) => {
 
     var team = props.map((data, i) => {
-        var link = data.raceName.replace(/ /g, "-");
+        var link = data.Circuit.circuitId
         return (
             <tr key={i}>
                 <td className="text-right">{data.round}</td>
                 <td><Flag countryName={data.Circuit.Location.country} />
-                    <Link className="text-decoration-none text-reset" to={{
-                        pathname: '/Races/' + link,
-                        state: {
-                            data: data
+                    <Link className="text-decoration-none text-reset" to={'/races/' + link}
+                        state = {
+                            {data: data}
                         }
-                    }}> {data.raceName}
+                    > {data.raceName}
                     </Link>
                 </td>
                 <td>{data.Results[0].position}</td>

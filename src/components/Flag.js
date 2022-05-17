@@ -9,7 +9,7 @@ const Flag = ({nationality, countryName, flagWidth}) => {
             
             
     return(
-        <img width={flWidth} src={flagUrl} title={countryName} alt={countryName} />
+        <img width={flWidth} height="15"  src={flagUrl} title={countryName} alt={countryName} />
     );
     
 }

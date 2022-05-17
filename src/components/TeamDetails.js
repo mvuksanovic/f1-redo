@@ -65,13 +65,13 @@ const TeamDetails = () => {
 
 
         return (
-            <div className="d-lg-flex flex-lg-row flex-sm-fill">
+            <div className="grow d-lg-flex flex-lg-row flex-sm-fill">
 
                 <TeamBio props={linkData} />
 
 
 
-                <div className="rounded tableDiv m-1 flex-grow-1">
+                <div className="rounded bg-dark overflow-auto hb-100 m-1 flex-grow-1">
 
                     <TeamResults props={raceData} />
 

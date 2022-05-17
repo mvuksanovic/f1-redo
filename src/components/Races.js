@@ -1,27 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Loader from './Loader';
 import { Link } from 'react-router-dom';
 import Flag from './Flag';
 import { Table } from 'react-bootstrap'
+import { ThemeContext } from "../context/ThemeContext";
 
 
 const Races = ({ season }) => {
-    /*   constructor() {
-          super();
-  
-         this.state = {
-              data: [],
-              isLoading: true
-             
-          }
-      } */
+   
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         getRaceData();
-    })
+    }, [season])
 
-
+    const theme = useContext(ThemeContext)
     const getRaceData = () => {
         var url = `https://ergast.com/api/f1/${season}/results/1.json`;
         fetch(url)
@@ -37,15 +30,15 @@ const Races = ({ season }) => {
             <Loader />
         )
     }
-
+    
     var race = data.map((data, i) => {
-        var link = data.raceName.replace(/ /g, "-");
+        var link = data.Circuit.circuitId;
         return (
             <tr key={i}>
                 <td className="text-right">{data.round}<Flag countryName={data.Circuit.Location.country} /></td>
                 <td>
                     <Link className="text-decoration-none text-reset"
-                        to={'/Races/' + link}
+                        to={'/races/' + link}
                         state={{ data: data }}
                     >
                         {data.raceName}
@@ -57,10 +50,12 @@ const Races = ({ season }) => {
             </tr>
         );
     })
+
+    
     return (
 
-        <div className="rounded tableDiv m-1">
-            <Table striped borderless hover size="sm" variant="dark">
+        <div className={"rounded tableDiv m-1 mb-2 bg-"+ theme.theme}>
+            <Table striped borderless hover size="sm" variant={theme.theme}>
                 <thead>
                     <tr>
                         <th colSpan="5">Race Calendar - {season}</th>

@@ -4,6 +4,7 @@
 html, body, #root {
     background-color: #6c757d;
     height: 100%;
+    box-sizing: border-box;
 }
 .navBar1 {
     width: 15%;
@@ -62,13 +63,13 @@ table {
 }
 .grow {
     flex: 1 1 auto;
-    height: 88%;
     overflow: hidden;
+    height: calc(100% - 4px);
 }
 .tableDiv {
     overflow-y: auto;
-    height: calc(100% - 100px);
-    background: #212529;
+    height: calc(100% - 8px);
+    /*background: #212529;*/
 }
 .logo {
     width: 100%;
@@ -89,8 +90,7 @@ table {
 .header {
     height: 50px;
 }
-
-.footer p {    
-    margin-left: 20%;
-    margin-right: 20%;
+.main {
+    height: calc(100% - 100px);
+    overflow-y: hidden;
 }
