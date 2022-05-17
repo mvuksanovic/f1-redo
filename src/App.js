@@ -8,7 +8,7 @@ import RaceDetails from './components/RaceDetails';
 import TeamDetails from './components/TeamDetails';
 import DriverDetails from './components/DriverDetails';
 import Mng404 from './components/Mng404';
-import Head from './components/Header';
+import Header from './components/Header';
 import Footer from './components/footer.js';
 import Home from './components/Home';
 
@@ -48,16 +48,14 @@ class App extends React.Component {
             <div className="bg-secondary d-md-flex flex-md-row align-items-strech p-1" style={{ height: "100%" }}>
                 <NavBar />
                 <div className="flex-fill ">
-                    <Head
+                    <Header
                         updateSeason={this.updateSeason}
                         season={this.state.season}
                         currentSeason={this.state.currentSeason}
                     />
                     <Routes>
                         <Route path='/' element={<Home />} />
-                        <Route path='Drivers' element={<Drivers season={season} />} >
-
-                        </Route>
+                        <Route path='Drivers' element={<Drivers season={season} />} />
                         <Route path="Drivers/:driver" element={<DriverDetails />} />
                         <Route path='/Teams' element={<Teams season={season} />} />
                         <Route path='/Races' element={<Races season={season} />} />

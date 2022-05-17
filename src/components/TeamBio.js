@@ -15,7 +15,7 @@ const TeamBio = ({props}) => {
     return (
         <div className="d-flex flex-lg-column  bg-dark text-white m-1 p-1 rounded">
                   <div className="d-flex flex-row ">
-                    <div className="rounded tableDiv m-1">
+                    <div className="rounded m-1">
                         <h3>{props.Constructor.name}</h3>
                         <img style={{width: 130}} src={src} alt={props.Constructor.name} />
                         <div className="m-1 p-1">

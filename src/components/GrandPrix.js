@@ -1,11 +1,7 @@
-import React from 'react';
 import Flag from './Flag';
 import WikiImage from './WikiImage';
 
 const GrandPrix = ({data}) => {
-
-    //const data = props.data;
-
 
     return (
         <div className="d-flex flex-lg-column bg-dark text-white m-1 p-1 rounded">
@@ -19,7 +15,7 @@ const GrandPrix = ({data}) => {
                             <p>{data.Circuit.Location.country}</p>
                             <p>{data.Circuit.Location.locality}</p>
                             <p className="mb-0">{data.date}</p>
-                            <a className="btn btn-secondary m-1" href={data.url} target="_blank">Details</a>
+                            <a className="btn btn-secondary m-1" href={data.url} target="_blank" rel="noreferrer">Details</a>
                         </div>
                         <div className="ml-2 flex-grow-1">
                             <WikiImage url={data.url} size="200" />

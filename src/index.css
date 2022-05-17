@@ -66,8 +66,8 @@ table {
     overflow: hidden;
 }
 .tableDiv {
-    overflow: hidden;
-    height: 88%;
+    overflow-y: auto;
+    height: calc(100% - 100px);
     background: #212529;
 }
 .logo {
@@ -83,8 +83,11 @@ table {
     color: grey;    
     padding-top: 10px;
     text-decoration: none;
-    height: 5%;
+    height: 35px;
    
+}
+.header {
+    height: 50px;
 }
 
 .footer p {    

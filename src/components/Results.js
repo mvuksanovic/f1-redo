@@ -1,36 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Flag from './Flag';
 import Loader from './Loader';
+import { Table } from "react-bootstrap"
+import { useLocation } from "react-router-dom";
 
-class Results extends React.Component {
-    constructor() {
+const Results = ({season, round}) => {
+    /* constructor() {
         super();
         this.state = {
             results: [],
             isLoading: true
 
         }
-    }
-    componentDidMount() {
-        var url = `https://ergast.com/api/f1/${this.props.season}/${this.props.id}/results.json`;
+    } */
+
+    const [results, setResults] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        var url = `https://ergast.com/api/f1/${season}/${round}/results.json`;
         fetch(url)
             .then(response => response.json())
-            .then(results => this.setState({ 
-                results: results.MRData.RaceTable.Races[0].Results,
-                isLoading: false
-             }));
-        
-    }
+            .then(results => {
+                setResults(results.MRData.RaceTable.Races[0].Results)
+                    setIsLoading(false)
+            });
 
-    render() {
-        if(this.state.isLoading) {
+    })
+
+
+        if (isLoading) {
             return (
                 <Loader />
             )
         }
 
 
-        var result = this.state.results.map((result, i) => {
+        var result = results.map((result, i) => {
             var time = (result.status === "Finished") ? (result.Time && result.Time.time) : result.status;
             return (<tr key={i}>
                 <td>{result.position}<Flag nationality={result.Driver.nationality} /></td>
@@ -44,7 +49,7 @@ class Results extends React.Component {
 
         return (
             <div className="rounded tableDiv m-1 flex-fill">
-                <table className="table table-sm table-striped table-hover table-dark table-borderless mb-0">
+                <Table striped borderless hover size="sm" variant="dark">
                     <thead>
                         <tr>
                             <th colSpan="5">Race results</th>
@@ -61,10 +66,10 @@ class Results extends React.Component {
                     <tbody>
                         {result}
                     </tbody>
-                </table>
-                </div>
+                </Table>
+            </div>
         );
-    }
+    
 
 }
 export default Results

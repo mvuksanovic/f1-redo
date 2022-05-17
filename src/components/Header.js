@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
-const Head = ({season, currentSeason, updateSeason}) => {
+const Header = ({season, currentSeason, updateSeason}) => {
     
     const location = useLocation()
     console.log(season, location)
@@ -12,7 +12,7 @@ const Head = ({season, currentSeason, updateSeason}) => {
     
     useEffect(() => {
         setYear(season)
-    }, [currentSeason])
+    }, [season])
 
 
     const btnClick = () => {
@@ -39,7 +39,7 @@ const Head = ({season, currentSeason, updateSeason}) => {
             );
         }); 
         return (
-            <div className="d-flex flex-fill bg-dark m-1 p-1 rounded">
+            <div className="header d-flex flex-fill bg-dark m-1 p-1 rounded">
                  <ButtonToolbar className="flex-grow-1">
                     {button}
                 </ButtonToolbar>
@@ -55,4 +55,4 @@ const Head = ({season, currentSeason, updateSeason}) => {
     
 }
 
-export default Head;
+export default Header;

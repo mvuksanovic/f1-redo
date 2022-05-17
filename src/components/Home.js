@@ -7,8 +7,8 @@ const Home = () => {
     
     var sectionStyle = {filter: "blur(4px) opacity(10%)"};
     return (
-        <div className="flex-fill align-items-center h-100">
-        <img width="100%" style={sectionStyle} src={bckgrnd}></img>    
+        <div className="flex-fill align-items-center h-90">
+        <img width="100%" style={sectionStyle} src={bckgrnd} alt="car driving loader"></img>    
         
         </div>
     );
