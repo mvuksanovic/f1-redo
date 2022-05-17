@@ -1,0 +1,93 @@
+.wrapper, .details, .tables {
+    display: flex;
+}
+html, body, #root {
+    background-color: #6c757d;
+    height: 100%;
+}
+.navBar1 {
+    width: 15%;
+    height: 100%;
+    background: darkgray;
+    position: fixed;
+    z-index: 1;
+}
+
+.navIcon {
+    text-align: center;
+    border: 1px solid darkslategray;
+    padding: 4px;
+    text-decoration: none;
+    color: darkslategrey;
+}
+.outline-secondary {
+    margin: 0;
+    
+}
+.sta {
+    width: 100%;    
+    border-radius: 5px;
+    margin: 2px 5px 2px 0px;
+
+    /*background-color: #343a40;*/
+    /*#5a6268;*/
+
+}
+
+.navIcon :hover {
+    background: grey;
+}
+
+.btnStyle {
+    background: grey;
+}
+.btnStyle button :hover {
+    background: red;
+}
+
+.navIconContainer {
+   font-display: sans-serif;
+}
+.ButtonToolbar {
+    position: fixed;
+}
+.main1 {
+    margin-left: 15%;
+    width: 85%;
+}
+
+table {
+     margin-bottom: 0 !important;
+    
+}
+.grow {
+    flex: 1 1 auto;
+    height: 88%;
+    overflow: hidden;
+}
+.tableDiv {
+    overflow: hidden;
+    height: 88%;
+    background: #212529;
+}
+.logo {
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+
+}
+.logo img {
+    width: 90%;
+}
+
+.footer {
+    color: grey;    
+    padding-top: 10px;
+    text-decoration: none;
+    height: 5%;
+   
+}
+
+.footer p {    
+    margin-left: 20%;
+    margin-right: 20%;
+}
