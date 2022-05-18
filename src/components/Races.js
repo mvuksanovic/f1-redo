@@ -51,11 +51,11 @@ const Races = ({ season }) => {
         );
     })
 
-    
+    const tableProps = theme.theme //striped borderless hover size="sm" variant="dark" 
     return (
 
-        <div className={"rounded tableDiv m-1 mb-2 bg-"+ theme.theme}>
-            <Table striped borderless hover size="sm" variant={theme.theme}>
+        <div className={"rounded tableDiv m-1 mb-2 bg-"+ tableProps.variant}>
+            <Table {...tableProps}>
                 <thead>
                     <tr>
                         <th colSpan="5">Race Calendar - {season}</th>

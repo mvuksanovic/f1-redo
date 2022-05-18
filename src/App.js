@@ -17,7 +17,14 @@ const App = () => {
 
     const [season, setSeason] = useState("current")
     const [currentSeason, setCurrentSeason] = useState("current")
-    const [theme, setTheme] = useState("dark")
+    const [theme, setTheme] = useState({
+        
+            striped: true,
+            borderless: true,
+            hover: true,
+            size: 'sm',
+            variant: 'dark'
+    })
     useEffect(() => {
         var url = "https://ergast.com/api/f1/current/last/seasons.json"
         fetch(url)

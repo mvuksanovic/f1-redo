@@ -59,8 +59,8 @@ const Drivers = ({ season }) => {
 
     return (
         <div className="grow rounded h-100 flex-lg-row flex-sm-fill">
-            <div className={"rounded tableDiv m-1 bg-"+theme.theme}>
-                <Table striped borderless hover size="sm" variant={theme.theme}>
+            <div className={"rounded tableDiv m-1 bg-"+theme.theme.variant}>
+                <Table {...theme.theme}>
                     <thead>
                         <tr>
 

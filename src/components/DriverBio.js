@@ -7,7 +7,7 @@ const DriverBio = (props) => {
     var data = props.posts;
     var countryName = getCountryFromNationality(data.Driver.nationality);
     return (
-        <div className="d-flex flex-lg-column bg-dark text-white m-1 p-1 rounded">
+        <div className="d-flex flex-lg-column m-1 p-1 rounded text-white bg-dark">
             <div className="d-flex flex-row flex-grow-1">
                 
                 <div className="d-flex flex-column flex-fill ">
