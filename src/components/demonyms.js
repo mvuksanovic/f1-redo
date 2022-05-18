@@ -146,7 +146,7 @@ const countries = [
 ["TZ","Tanzania","122","Tanzanian"],
 ["UA","Ukraine","125","Ukrainian"],
 ["UG","Uganda","124","Ugandan"],
-["US","United States of America","40","American"],
+["US","USA","40","American"],
 ["UY","Uruguay","127","Uruguayan"],
 ["UZ","Uzbekistan","128","Uzbekistani"],
 ["VE","Venezuela","49","Venezuelan"],

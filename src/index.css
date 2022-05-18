@@ -7,7 +7,7 @@ html, body, #root {
     box-sizing: border-box;
 }
 .navBar1 {
-    width: 15%;
+    width: 12.5%;
     height: 100%;
     background: darkgray;
     position: fixed;
@@ -60,6 +60,11 @@ html, body, #root {
 table {
      margin-bottom: 0 !important;
     
+}
+
+thead {
+    position: sticky;
+    top: 0
 }
 .grow {
     flex: 1 1 auto;

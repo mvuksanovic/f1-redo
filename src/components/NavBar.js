@@ -16,9 +16,9 @@ function NavBar() {
             <div className={"navBar navbar-expand-md sticky-top m-1 p-1 rounded bg-"+theme.theme}>
                 <div className="navIconContainer d-flex flex-fill flex-md-column">
                     <Link className="col-2 col-md-12 mr-auto p-1" to="/"><img src={Logo} width="70%" alt="logo"/></Link>
-                    <Link to="/drivers"><Button variant="secondary" className="sta" size="md"><img width="40px" src={Helmet} alt="helmet"/> Drivers</Button></Link>
-                    <Link to="/teams"><Button variant="secondary" className="sta" size="md"><img width="40px" src={Car} alt="car"/> Teams</Button></Link>
-                    <Link to="/races"><Button variant="secondary" className="sta" size="md"><img width="40px" src={F1flag} alt="flag"/> Races</Button></Link>
+                    <Link to="/drivers"><Button variant="secondary" className="sta" size="md"><img width="20px" src={Helmet} alt="helmet"/> Drivers</Button></Link>
+                    <Link to="/teams"><Button variant="secondary" className="sta" size="md"><img width="20px" src={Car} alt="car"/> Teams</Button></Link>
+                    <Link to="/races"><Button variant="secondary" className="sta" size="md"><img width="20px" src={F1flag} alt="flag"/> Races</Button></Link>
 
 
                 </div>
