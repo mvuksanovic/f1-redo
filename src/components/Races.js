@@ -11,19 +11,17 @@ const Races = ({ season }) => {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        getRaceData();
-    }, [season])
-
-    const {theme} = useContext(ThemeContext)
-    const getRaceData = () => {
-        var url = `https://ergast.com/api/f1/${season}/results/1.json`;
+        let url = `https://ergast.com/api/f1/${season}/results/1.json`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 setData(data.MRData.RaceTable.Races)
                 setIsLoading(false)
             })
-    }
+    }, [season])
+
+    const {theme} = useContext(ThemeContext)
+    
 
     if (isLoading) {
         return (
