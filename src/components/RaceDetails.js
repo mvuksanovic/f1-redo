@@ -19,7 +19,7 @@ const RaceDetails = () => {
 
         <div className="d-lg-flex h-100 flex-lg-row flex-lg-fill">
             <GrandPrix data={data} />
-            <div className="d-xl-flex flex-xl-row flex-grow-1 flex-fill">
+            <div className="d-xl-flex flex-xl-row flex-grow-1 flex-fill overflow-auto">
                 <Results round={data.round} season={data.season} />
                 <Qualifiers round={data.round} season={data.season} />
 

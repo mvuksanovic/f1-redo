@@ -12,9 +12,6 @@ const TeamDetails = () => {
     const [raceData, setRaceData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    console.log(location, data, raceData, isLoading)
-
-
     useEffect(() => {
         if (location.state) {
             if (location.state.data) {
@@ -65,17 +62,11 @@ const TeamDetails = () => {
 
 
         return (
-            <div className="grow d-lg-flex flex-lg-row flex-sm-fill">
+            <div className="grow d-lg-flex flex-lg-row h-100 flex-sm-fill">
 
                 <TeamBio props={linkData} />
-
-
-
-                <div className="rounded bg-dark overflow-auto hb-100 m-1 flex-grow-1">
-
-                    <TeamResults props={raceData} />
-
-                </div>
+                <TeamResults props={raceData} />
+                
             </div>
         );
     

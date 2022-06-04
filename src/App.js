@@ -42,7 +42,7 @@ const App = () => {
     return (
 
         <ThemeContext.Provider value={{theme, setTheme}}>
-            <div className="bg-secondary d-md-flex flex-md-row align-items-strech container-xxl p-1 h-100">
+            <div className="bg-secondary d-md-flex flex-md-row align-items-strech container-fluid p-1 h-100">
                 <NavBar />
                 <div className="flex-fill ">
                     <Header

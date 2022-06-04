@@ -22,7 +22,6 @@ const Drivers = ({ season }) => {
     }, [season])
 
     const theme = useContext(ThemeContext)
-    console.log(theme)
     if (isLoading) {
         return (
             <Loader />

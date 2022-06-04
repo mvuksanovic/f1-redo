@@ -26,7 +26,7 @@ class WikiImage extends React.Component {
     
     
     return(
-        <img src={this.state.imgUrl || './../img/helmet-grey.png'} alt="driver" height={165}/>
+        <img src={this.state.imgUrl || './../img/200.png'} alt="wiki"/>
     );
     }
 }

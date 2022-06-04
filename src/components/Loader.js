@@ -1,4 +1,4 @@
-import loaderSrc from '../img/f1.gif';
+import loaderSrc from '../img/drifting.gif';
 
 function Loader() {
     return (

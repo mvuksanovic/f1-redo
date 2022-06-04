@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Flag from './Flag';
 import { Link } from "react-router-dom";
-
+import { ThemeContext } from "../context/ThemeContext";
+import {Table} from "react-bootstrap"
 
 const TeamResults = ({ props }) => {
 
@@ -24,9 +25,12 @@ const TeamResults = ({ props }) => {
             </tr>
         );
     })
+
+    const {theme} = useContext(ThemeContext)
+
     return (
-        <div className="setailTable">
-            <table className="table table-sm table-striped table-hover table-dark table-borderless mb-0">
+        <div className={"rounded overflow-auto m-1 p-1 flex-grow-1 bg-"+theme.variant}>
+            <Table {...theme}>
                 <thead>
                     <tr><th colSpan="5">Formula 1 {props[0].season} Results</th></tr>
                     <tr>
@@ -42,7 +46,7 @@ const TeamResults = ({ props }) => {
                 <tbody>
                     {team}
                 </tbody>
-            </table>
+            </Table>
         </div>
     );
 }

@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Flag from './Flag';
 import { Table } from 'react-bootstrap';
+import { ThemeContext } from '../context/ThemeContext';
 const Qualifiers = ({season, round}) => {
     
     const [data, setData] = useState([])
-    
+    const {theme} = useContext(ThemeContext)
     useEffect(() => {
         var url = `https://ergast.com/api/f1/${season}/${round}/qualifying.json`;
         fetch(url)
@@ -28,8 +29,8 @@ const Qualifiers = ({season, round}) => {
         })
 
         return (
-            <div className="rounded tableDiv bg-dark m-1 flex-fill">
-            <Table striped borderless hover size="sm" variant="dark">
+            <div className={"rounded tableDiv m-1 flex-fill bg-"+theme.variant}>
+            <Table {...theme}>
                 <thead>
                     <tr>
                         <th colSpan="4">Qualifying Results</th>

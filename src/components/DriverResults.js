@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Flag from './Flag';
 import Loader from './Loader';
 import { getDriverResults } from './api'
 import { Table } from "react-bootstrap"
+import { ThemeContext } from "../context/ThemeContext";
 
 const DriverResults = ({ season, driverId }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [data, setData] = useState(null)
-
+    const {theme} = useContext(ThemeContext)
     useEffect(() => {
         getDriverResults(season, driverId)
             .then(data => {
@@ -21,9 +22,11 @@ const DriverResults = ({ season, driverId }) => {
             <Loader />
         );
     }
+
+    
     return (
-        <div className="rounded bg-dark overflow-auto m-1 p-1 flex-grow-1">
-            <Table striped borderless hover size="sm" variant="dark">
+        <div className={"rounded overflow-auto m-1 p-1 flex-grow-1 bg-"+theme.variant}>
+            <Table {...theme}>
                 <thead>
                     <tr>
                         <th colSpan="5">Formula 1 {season} Results</th>

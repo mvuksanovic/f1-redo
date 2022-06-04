@@ -3,11 +3,13 @@ import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { ThemeContext } from "../context/ThemeContext";
-import { Modal } from "react-bootstrap";
+import { Modal} from "react-bootstrap";
+import ThemeSettings from "./ThemeSettings";
+
 const Header = ({ season, currentSeason, updateSeason }) => {
 
     const location = useLocation()
-   
+
     const [year, setYear] = useState(season)
     const { theme, setTheme } = useContext(ThemeContext)
     useEffect(() => {
@@ -29,10 +31,17 @@ const Header = ({ season, currentSeason, updateSeason }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const changeTheme = () => {
-        theme.variant === "dark" ? setTheme(prevState => { return { ...prevState, variant: "light" } }) : setTheme(prevState => { return { ...prevState, variant: "dark" } })
+    const changeTheme = (e) => {
+        const id = e.target.id
+        if (id === "variant") {
+            theme[id] === "dark" ? setTheme(prevState => { return { ...prevState, [id]: "light" } }) : setTheme(prevState => { return { ...prevState, [id]: "dark" } })
+    } else if (id === "size") {
+        theme[id] === "sm" ? setTheme(prevState => { return { ...prevState, [id]: "lg" } }) : setTheme(prevState => { return { ...prevState, [id]: "sm" } })
+} else {
+    const value = !theme[id]
+    setTheme(prevState => { return {...prevState, [id]: value}})
+}
     }
-    const lightButtonValue = theme.variant === "dark" ? "light" : "dark"
 
     var smth = location.pathname;
     smth = (smth === "/") ? " " : smth;
@@ -57,19 +66,14 @@ const Header = ({ season, currentSeason, updateSeason }) => {
                     <Button className="m-1 p-1" variant="secondary" onClick={btnClick}>Year</Button>
                 </div>
             </div>
-            <Modal show={show} onHide={handleClose}>
+            <Modal size="sm" show={show} onHide={handleClose} backdrop={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Theme Settings</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={changeTheme}>
-                        {lightButtonValue}
-                    </Button>
-                </Modal.Footer>
+                <Modal.Body>
+                    <ThemeSettings changeTheme={changeTheme}/>
+                </Modal.Body>
+                
             </Modal>
         </>
     );

@@ -2,12 +2,17 @@
 import Flag from './Flag';
 import WikiImage from './WikiImage';
 import {getCountryFromNationality} from './demonyms'
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const DriverBio = (props) => {
-    var data = props.posts;
-    var countryName = getCountryFromNationality(data.Driver.nationality);
+    const data = props.posts;
+    const countryName = getCountryFromNationality(data.Driver.nationality);
+
+    const {theme} = useContext(ThemeContext)
+    const divThemeClass = theme.variant==="dark"? "text-white bg-dark" : "text-black bg-light"
     return (
-        <div className="d-flex flex-lg-column m-1 p-1 rounded text-white bg-dark">
+        <div className={"d-flex flex-lg-column m-1 p-1 rounded " + divThemeClass}>
             <div className="d-flex flex-row flex-grow-1">
                 
                 <div className="d-flex flex-column flex-fill ">

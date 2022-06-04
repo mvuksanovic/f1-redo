@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Flag from './Flag';
 import Loader from './Loader';
 import { Table } from "react-bootstrap"
+import { ThemeContext } from "../context/ThemeContext";
 
 const Results = ({ season, round }) => {
     /* constructor() {
@@ -15,6 +16,7 @@ const Results = ({ season, round }) => {
 
     const [results, setResults] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const {theme} = useContext(ThemeContext)
     useEffect(() => {
         var url = `https://ergast.com/api/f1/${season}/${round}/results.json`;
         fetch(url)
@@ -45,16 +47,10 @@ const Results = ({ season, round }) => {
         </tr>)
 
     })
-    const tableProps = {
-        striped: true,
-        borderless: false,
-        hover: true,
-        size: 'sm',
-        variant: 'dark'
-    }
+    
     return (
-        <div className="rounded tableDiv m-1 flex-fill bg-dark">
-            <Table {...tableProps}>
+        <div className={"rounded overflow-auto tableDiv m-1 flex-fill bg-"+theme.variant}>
+            <Table {...theme}>
                 <thead>
                     <tr>
                         <th colSpan="5">Race results</th>

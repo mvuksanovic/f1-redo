@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import Flag from './Flag';
 
 
@@ -9,10 +11,11 @@ const TeamBio = ({props}) => {
     } catch (err) {
         src = "";
     }
-
+    const {theme} = useContext(ThemeContext)
+    const divThemeClass = theme.variant==="dark"? "bg-dark text-white" : "bg-light text-black"
 
     return (
-        <div className="d-flex flex-lg-column  col-lg-3 bg-dark text-white m-1 p-1 rounded">
+        <div className={"d-flex flex-lg-column  col-lg-3 m-1 p-1 rounded "+divThemeClass}>
                   <div className="d-flex flex-row justify-content-center">
                     <div className="rounded m-1 text-center" >
                         <h3>{props.Constructor.name}</h3>
