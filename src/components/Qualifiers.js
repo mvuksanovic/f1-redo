@@ -20,10 +20,10 @@ const Qualifiers = ({season, round}) => {
             var bestTime = [data.Q1, data.Q2, data.Q3].sort()[0];
             return (
                 <tr key={i}>
-                    <td>{data.position}</td>
+                    <td className="text-end">{data.position}</td>
                     <td><Flag nationality={data.Driver.nationality} /> {data.Driver.givenName} {data.Driver.familyName}</td>
                     <td>{data.Constructor.name}</td>
-                    <td>{bestTime}</td>
+                    <td className="text-end">{bestTime}</td>
                 </tr>
             );
         })
@@ -36,10 +36,10 @@ const Qualifiers = ({season, round}) => {
                         <th colSpan="4">Qualifying Results</th>
                     </tr>
                     <tr>
-                        <th>Pos</th>
+                        <th className="text-end">Pos</th>
                         <th>Driver</th>
                         <th>Team</th>
-                        <th>Best Time</th>
+                        <th className="text-end">Best Time</th>
                     </tr>
 
                 </thead>

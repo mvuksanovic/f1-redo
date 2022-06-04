@@ -34,20 +34,20 @@ const DriverResults = ({ season, driverId }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Round</th>
+                        <th className="text-end">Round</th>
                         <th>Grand Prix</th>
                         <th>Team</th>
-                        <th>Grid</th>
-                        <th>Position</th>
+                        <th className="text-end">Grid</th>
+                        <th className="text-end">Position</th>
                     </tr>
                     {data.map((data, i) => {
                         return (
                             <tr key={i}>
-                                <td className="text-right">{data.round}<Flag countryName={data.Circuit.Location.country} /></td>
-                                <td> {data.Circuit.circuitName}</td>
+                                <td className="text-end">{data.round}</td>
+                                <td> <Flag countryName={data.Circuit.Location.country} />{data.Circuit.circuitName}</td>
                                 <td>{data.Results[0].Constructor.name}</td>
-                                <td>{data.Results[0].grid}</td>
-                                <td className="default">{data.Results[0].position}</td>
+                                <td className="text-end">{data.Results[0].grid}</td>
+                                <td className="text-end">{data.Results[0].position}</td>
                             </tr>
                         );
                     })

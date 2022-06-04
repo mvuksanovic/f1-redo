@@ -10,7 +10,7 @@ const TeamResults = ({ props }) => {
         var link = data.Circuit.circuitId
         return (
             <tr key={i}>
-                <td className="text-right">{data.round}</td>
+                <td className="text-end">{data.round}</td>
                 <td><Flag countryName={data.Circuit.Location.country} />
                     <Link className="text-decoration-none text-reset" to={'/races/' + link}
                         state = {
@@ -19,9 +19,9 @@ const TeamResults = ({ props }) => {
                     > {data.raceName}
                     </Link>
                 </td>
-                <td>{data.Results[0].position}</td>
-                <td>{data.Results[1] && data.Results[1].position}</td>
-                <td>{Number(data.Results[0].points) + Number((data.Results[1]) ? (data.Results[1].points) : 0)}</td>
+                <td className="text-end">{data.Results[0].position}</td>
+                <td className="text-end">{data.Results[1] && data.Results[1].position}</td>
+                <td className="text-end">{Number(data.Results[0].points) + Number((data.Results[1]) ? (data.Results[1].points) : 0)}</td>
             </tr>
         );
     })
@@ -34,12 +34,12 @@ const TeamResults = ({ props }) => {
                 <thead>
                     <tr><th colSpan="5">Formula 1 {props[0].season} Results</th></tr>
                     <tr>
-                        <th>Round</th>
+                        <th className="text-end">Round</th>
                         <th>Grand Prix</th>
-                        <th>{props[0].Results[0].Driver.familyName}</th>
-                        <th>{props[0].Results[1] && props[0].Results[1].Driver.familyName}</th>
+                        <th className="text-end">{props[0].Results[0].Driver.familyName}</th>
+                        <th className="text-end">{props[0].Results[1] && props[0].Results[1].Driver.familyName}</th>
 
-                        <th>Points</th>
+                        <th className="text-end">Points</th>
                     </tr>
 
                 </thead>

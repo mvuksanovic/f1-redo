@@ -51,7 +51,7 @@ const Teams = ({season}) => {
             var link= data.Constructor.constructorId           
             return (                                   
                     <tr key={i}>
-                        <td>{data.position}</td>
+                        <td className="text-end">{data.position}</td>
                         <td>
                        <Link className="text-decoration-none text-reset" 
                        to={'/teams/' + link}  
@@ -65,7 +65,7 @@ const Teams = ({season}) => {
                        </td>
                        
                         <td><a className="text-decoration-none text-reset" href={data.Constructor.url} target="_blank" rel="noreferrer">Details</a></td>
-                        <td>{data.points}</td>
+                        <td className="text-end">{data.points}</td>
                     </tr>                
             );                    
         })
@@ -79,10 +79,10 @@ const Teams = ({season}) => {
                                 <th colSpan="5">Constructors Championship Standings {season}</th>                               
                             </tr>
                             <tr>
-                                <th>Rank</th>
+                                <th className="text-end">Rank</th>
                                 <th>Name</th>
                                 <th>Details</th>
-                                <th>Points</th>
+                                <th className="text-end">Points</th>
                             </tr>
                             
                         </thead> 

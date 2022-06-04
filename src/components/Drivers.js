@@ -21,7 +21,7 @@ const Drivers = ({ season }) => {
             })
     }, [season])
 
-    const theme = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
     if (isLoading) {
         return (
             <Loader />
@@ -58,8 +58,8 @@ const Drivers = ({ season }) => {
 
     return (
         <div className="grow rounded h-100 flex-lg-row flex-sm-fill">
-            <div className={"rounded tableDiv m-1 bg-"+theme.theme.variant}>
-                <Table {...theme.theme}>
+            <div className={"rounded tableDiv m-1 bg-"+theme.variant}>
+                <Table {...theme}>
                     <thead>
                         <tr>
 

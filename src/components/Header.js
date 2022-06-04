@@ -60,7 +60,7 @@ const Header = ({ season, currentSeason, updateSeason }) => {
                 <ButtonToolbar className="flex-grow-1">
                     {button}
                 </ButtonToolbar>
-                <Button className="m-1 p-1" variant="link" onClick={handleShow}>Settings</Button>
+                <Button className="m-1 p-1" variant="secondary" onClick={handleShow}>Settings</Button>
                 <div className="ml-auto" style={hidden}>
                     <input className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange} />
                     <Button className="m-1 p-1" variant="secondary" onClick={btnClick}>Year</Button>
@@ -68,7 +68,7 @@ const Header = ({ season, currentSeason, updateSeason }) => {
             </div>
             <Modal size="sm" show={show} onHide={handleClose} backdrop={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Theme Settings</Modal.Title>
+                    <Modal.Title>Settings</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <ThemeSettings changeTheme={changeTheme}/>

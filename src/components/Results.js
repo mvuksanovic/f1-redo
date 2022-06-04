@@ -39,11 +39,11 @@ const Results = ({ season, round }) => {
     var result = results.map((result, i) => {
         var time = (result.status === "Finished") ? (result.Time && result.Time.time) : result.status;
         return (<tr key={i}>
-            <td>{result.position}</td>
+            <td className="text-end">{result.position}</td>
             <td> <Flag nationality={result.Driver.nationality} />{result.Driver.givenName} {result.Driver.familyName}</td>
             <td>{result.Constructor.name}</td>
-            <td>{time}</td>
-            <td>{result.points}</td>
+            <td className="text-end">{time}</td>
+            <td className="text-end">{result.points}</td>
         </tr>)
 
     })
@@ -57,11 +57,11 @@ const Results = ({ season, round }) => {
 
                     </tr>
                     <tr>
-                        <th>Pos</th>
+                        <th className="text-end">Pos</th>
                         <th>Driver</th>
                         <th>Team</th>
-                        <th>Result</th>
-                        <th>Points</th>
+                        <th className="text-end">Result</th>
+                        <th className="text-end">Points</th>
                     </tr>
                 </thead>
                 <tbody>

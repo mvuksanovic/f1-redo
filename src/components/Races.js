@@ -14,7 +14,7 @@ const Races = ({ season }) => {
         getRaceData();
     }, [season])
 
-    const theme = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
     const getRaceData = () => {
         var url = `https://ergast.com/api/f1/${season}/results/1.json`;
         fetch(url)
@@ -35,8 +35,9 @@ const Races = ({ season }) => {
         var link = data.Circuit.circuitId;
         return (
             <tr key={i}>
-                <td className="text-right">{data.round}<Flag countryName={data.Circuit.Location.country} /></td>
+                <td className="text-end">{data.round}</td>
                 <td>
+                <Flag countryName={data.Circuit.Location.country} />
                     <Link className="text-decoration-none text-reset"
                         to={'/races/' + link}
                         state={{ data: data }}
@@ -51,17 +52,17 @@ const Races = ({ season }) => {
         );
     })
 
-    const tableProps = theme.theme //striped borderless hover size="sm" variant="dark" 
+    
     return (
 
-        <div className={"rounded tableDiv m-1 mb-2 bg-"+ tableProps.variant}>
-            <Table {...tableProps}>
+        <div className={"rounded tableDiv m-1 mb-2 bg-"+ theme.variant}>
+            <Table {...theme}>
                 <thead>
                     <tr>
                         <th colSpan="5">Race Calendar - {season}</th>
                     </tr>
                     <tr>
-                        <th>Round</th>
+                        <th className="text-end">Round</th>
                         <th>Grand Prix</th>
                         <th>Circuit</th>
                         <th>Date</th>
