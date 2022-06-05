@@ -15,7 +15,7 @@ const Teams = ({season}) => {
         getConstructorData();
     })
     
-    const theme = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext)
     
     const getConstructorData = () => {
         var url = `https://ergast.com/api/f1/${season}/constructorStandings.json`;
@@ -33,7 +33,8 @@ const Teams = ({season}) => {
         });        
     }
 
-    
+    const divThemeClass = theme.variant==="dark"? "bg-dark text-white" : "bg-light text-black"
+
         if(isLoading) {
             return (
                 <Loader />
@@ -41,7 +42,7 @@ const Teams = ({season}) => {
         }
 
         if(!data.length){
-            return <div className="d-flex flex-fill tableDiv bg-dark m-1 p-1 rounded text-white">
+            return <div className={"d-flex flex-fill tableDiv m-1 p-1 rounded " + divThemeClass}>
                 <h5>No data for {season}</h5>
                 <Loader />
             </div>
@@ -70,10 +71,10 @@ const Teams = ({season}) => {
             );                    
         })
 
-        const tableProps = theme.theme
+        
         return(
-            <div className={"rounded tableDiv m-1 bg-" + tableProps.variant }>
-                  <Table {...tableProps}>
+            <div className={"rounded tableDiv m-1 " + divThemeClass }>
+                  <Table {...theme}>
                         <thead>
                             <tr>
                                 <th colSpan="5">Constructors Championship Standings {season}</th>                               

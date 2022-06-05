@@ -6,6 +6,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { Modal} from "react-bootstrap";
 import ThemeSettings from "./ThemeSettings";
 
+
 const Header = ({ season, currentSeason, updateSeason }) => {
 
     const location = useLocation()
@@ -60,7 +61,7 @@ const Header = ({ season, currentSeason, updateSeason }) => {
                 <ButtonToolbar className="flex-grow-1">
                     {button}
                 </ButtonToolbar>
-                <Button className="m-1 p-1" variant="secondary" onClick={handleShow}>Settings</Button>
+                <Button className="m-1 p-1" variant="secondary" onClick={handleShow}>&#9881;</Button>
                 <div className="ml-auto" style={hidden}>
                     <input className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange} />
                     <Button className="m-1 p-1" variant="secondary" onClick={btnClick}>Year</Button>
