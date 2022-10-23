@@ -33,7 +33,7 @@ const TeamDetails = () => {
     }
 
     const getConstructor2Data = (constructor, season) => {
-        var url2 = `https://ergast.com/api/f1/${season}/constructors/${constructor}/results.json`;
+        var url2 = `https://ergast.com/api/f1/${season}/constructors/${constructor}/results.json?limit=60`;
         fetch(url2)
             .then(response => response.json())
             .then(data => { setRaceData(data.MRData.RaceTable.Races) 
