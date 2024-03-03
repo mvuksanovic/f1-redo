@@ -15,7 +15,8 @@ import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
 
-    const [season, setSeason] = useState(1949)
+    const currentYear = new Date().getFullYear()
+    const [season, setSeason] = useState(currentYear)
     const [currentSeason, setCurrentSeason] = useState("current")
     const [theme, setTheme] = useState({
         
@@ -30,8 +31,9 @@ const App = () => {
         fetch(url)
             .then(result => result.json())
             .then(data => {
-                setSeason(data.MRData.SeasonTable.season)
-                setCurrentSeason(data.MRData.SeasonTable.season)
+                let year = data.MRData.SeasonTable.season
+                setSeason(year)
+                setCurrentSeason(year)
             })
     }, [])
 
