@@ -25,7 +25,7 @@ const DriverResults = ({ season, driverId }) => {
 
     
     return (
-        <div className={"rounded overflow-auto m-1 p-1 flex-grow-1 bg-"+theme.variant}>
+        <div className={"rounded tableDiv m-1 p-1 flex-grow-1 bg-"+theme.variant}>
             <Table {...theme}>
                 <thead>
                     <tr>

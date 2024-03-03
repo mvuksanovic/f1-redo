@@ -11,7 +11,7 @@ const Qualifiers = ({season, round}) => {
         fetch(url)
             .then(response => response.json())
             .then(data => (data.MRData.RaceTable.Races[0] && setData(data.MRData.RaceTable.Races[0].QualifyingResults)));
-    })
+    }, [season, round])
 
         if(!data.length){
             return ("")

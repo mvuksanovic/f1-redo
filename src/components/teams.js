@@ -12,26 +12,25 @@ const Teams = ({season}) => {
     const [data, setData] = useState()
 
     useEffect(() => {
-        getConstructorData();
-    })
-    
-    const {theme} = useContext(ThemeContext)
-    
-    const getConstructorData = () => {
         var url = `https://ergast.com/api/f1/${season}/constructorStandings.json`;
         fetch(url)
             .then(response => response.json())
             .then(resp => {
                 if(resp.MRData.total !== "0"){
-                    setData(resp.MRData.StandingsTable.StandingsLists[0].ConstructorStandings)
+                    let newData = resp.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+                    setData(newData)
                     setIsLoading(false)}
                     else {
                         setData([])
                         setIsLoading(false)}
             ;
             
-        });        
-    }
+        })
+    }, [season])
+    
+    const {theme} = useContext(ThemeContext)
+    
+   
 
     const divThemeClass = theme.variant==="dark"? "bg-dark text-white" : "bg-light text-black"
 
@@ -93,7 +92,6 @@ const Teams = ({season}) => {
                 </Table>
             </div>
         );
-    
 }
 
 export default Teams;

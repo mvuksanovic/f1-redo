@@ -39,7 +39,7 @@ const TeamResults = ({ props }) => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <div className={"rounded overflow-auto m-1 p-1 flex-grow-1 bg-" + theme.variant}>
+        <div className={"rounded tableDiv m-1 p-1 flex-grow-1 bg-" + theme.variant}>
             <Table {...theme}>
                 <thead>
                     <tr><th colSpan="5">Formula 1 {props[0].season} Results</th></tr>

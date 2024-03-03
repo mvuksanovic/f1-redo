@@ -10,7 +10,7 @@ const Drivers = ({ season }) => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-
+        setIsLoading(true)
         var url = "https://ergast.com/api/f1/" + season + "/driverStandings.json";
         fetch(url)
             .then(response => response.json())

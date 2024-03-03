@@ -15,7 +15,7 @@ import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
 
-    const [season, setSeason] = useState("current")
+    const [season, setSeason] = useState(1949)
     const [currentSeason, setCurrentSeason] = useState("current")
     const [theme, setTheme] = useState({
         

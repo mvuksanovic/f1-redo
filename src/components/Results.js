@@ -5,15 +5,7 @@ import { Table } from "react-bootstrap"
 import { ThemeContext } from "../context/ThemeContext";
 
 const Results = ({ season, round }) => {
-    /* constructor() {
-        super();
-        this.state = {
-            results: [],
-            isLoading: true
-
-        }
-    } */
-
+    
     const [results, setResults] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const {theme} = useContext(ThemeContext)
@@ -26,7 +18,7 @@ const Results = ({ season, round }) => {
                 setIsLoading(false)
             });
 
-    })
+    }, [season, round])
 
 
     if (isLoading) {
@@ -49,7 +41,7 @@ const Results = ({ season, round }) => {
     })
     
     return (
-        <div className={"rounded overflow-auto tableDiv m-1 flex-fill bg-"+theme.variant}>
+        <div className={"rounded tableDiv m-1 flex-fill bg-"+theme.variant}>
             <Table {...theme}>
                 <thead>
                     <tr>

@@ -63,7 +63,7 @@ const Header = ({ season, currentSeason, updateSeason }) => {
                 </ButtonToolbar>
                 <Button className="m-1 p-1" variant="secondary" onClick={handleShow}>&#9881;</Button>
                 <div className="ml-auto" style={hidden}>
-                    <input className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange} />
+                    <input id="selectYear" className="btn-outline" type="number" value={year} min="1950" max={`${currentSeason}`} style={{ width: "4em" }} onChange={onInputChange} />
                     <Button className="m-1 p-1" variant="secondary" onClick={btnClick}>Year</Button>
                 </div>
             </div>
