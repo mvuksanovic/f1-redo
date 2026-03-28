@@ -1,7 +1,7 @@
 
-const baseUrl = "https://ergast.com/api/f1"
+const baseUrl = "https://api.jolpi.ca/ergast/f1"
 export function getCurrentSeason(){
-    var url = "https://ergast.com/api/f1/current/last/seasons.json"
+    var url = "https://api.jolpi.ca/ergast/f1/current/last/seasons.json"
         return fetch(url).then(result => result.json())
 }
 export function getDrivers(season){

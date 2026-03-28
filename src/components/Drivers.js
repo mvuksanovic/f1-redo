@@ -11,7 +11,7 @@ const Drivers = ({ season }) => {
 
     useEffect(() => {
         setIsLoading(true)
-        var url = "https://ergast.com/api/f1/" + season + "/driverStandings.json";
+        var url = "https://api.jolpi.ca/ergast/f1/" + season + "/driverStandings.json";
         fetch(url)
             .then(response => response.json())
             .then(posts => {

@@ -12,7 +12,7 @@ const Teams = ({season}) => {
     const [data, setData] = useState()
 
     useEffect(() => {
-        var url = `https://ergast.com/api/f1/${season}/constructorStandings.json`;
+        var url = `https://api.jolpi.ca/ergast/f1/${season}/constructorStandings.json`;
         fetch(url)
             .then(response => response.json())
             .then(resp => {

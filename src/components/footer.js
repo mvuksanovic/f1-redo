@@ -7,7 +7,7 @@ const Footer = () => {
 
 
         <div className={"d-flex justify-content-center flex-fill m-1 p-1 rounded footer bg-" + theme.theme.variant}>
-            <p>Powered by Ergast :: <a href="https://ergast.com/mrd/">http://ergast.com/mrd/</a></p>
+            <p>Powered by Ergast :: <a href="https://api.jolpi.ca/ergast/">https://api.jolpi.ca/ergast/</a></p>
         </div>
     );
 }

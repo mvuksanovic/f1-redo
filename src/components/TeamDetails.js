@@ -24,7 +24,7 @@ const TeamDetails = () => {
 }, [location.state])
 
     const getConstructorData = (constructor, season) => {
-        var url = `https://ergast.com/api/f1/${season}/constructors/${constructor}/constructorStandings.json`;
+        var url = `https://api.jolpi.ca/ergast/f1/${season}/constructors/${constructor}/constructorStandings.json`;
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -33,7 +33,7 @@ const TeamDetails = () => {
     }
 
     const getConstructor2Data = (constructor, season) => {
-        var url2 = `https://ergast.com/api/f1/${season}/constructors/${constructor}/results.json?limit=60`;
+        var url2 = `https://api.jolpi.ca/ergast/f1/${season}/constructors/${constructor}/results.json?limit=60`;
         fetch(url2)
             .then(response => response.json())
             .then(data => { setRaceData(data.MRData.RaceTable.Races) 

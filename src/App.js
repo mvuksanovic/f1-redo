@@ -27,7 +27,7 @@ const App = () => {
             variant: 'dark'
     })
     useEffect(() => {
-        var url = "https://ergast.com/api/f1/current/last/seasons.json"
+        var url = "https://api.jolpi.ca/ergast/f1/current/last/seasons.json"
         fetch(url)
             .then(result => result.json())
             .then(data => {

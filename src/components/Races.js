@@ -11,7 +11,7 @@ const Races = ({ season }) => {
     const [data, setData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        let url = `https://ergast.com/api/f1/${season}/results/1.json`;
+        let url = `https://api.jolpi.ca/ergast/f1/${season}/results/1.json`;
         fetch(url)
             .then(response => response.json())
             .then(data => {

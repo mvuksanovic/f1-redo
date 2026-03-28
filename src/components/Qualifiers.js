@@ -7,7 +7,7 @@ const Qualifiers = ({season, round}) => {
     const [data, setData] = useState([])
     const {theme} = useContext(ThemeContext)
     useEffect(() => {
-        var url = `https://ergast.com/api/f1/${season}/${round}/qualifying.json`;
+        var url = `https://api.jolpi.ca/ergast/f1/${season}/${round}/qualifying.json`;
         fetch(url)
             .then(response => response.json())
             .then(data => (data.MRData.RaceTable.Races[0] && setData(data.MRData.RaceTable.Races[0].QualifyingResults)));

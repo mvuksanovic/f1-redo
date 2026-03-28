@@ -10,7 +10,7 @@ const Results = ({ season, round }) => {
     const [isLoading, setIsLoading] = useState(true)
     const {theme} = useContext(ThemeContext)
     useEffect(() => {
-        var url = `https://ergast.com/api/f1/${season}/${round}/results.json`;
+        var url = `https://api.jolpi.ca/ergast/f1/${season}/${round}/results.json`;
         fetch(url)
             .then(response => response.json())
             .then(results => {
